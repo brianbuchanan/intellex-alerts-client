@@ -42,7 +42,6 @@ public abstract class IntellexAlertJmsMessageListener implements MessageListener
 			logger.warning("Expected message of type " + TextMessage.class.getName() + ". Received " + message.getClass().getName());
 			return;
 		}
-		
 		try {
 			handleAlertJson(alertAsFormattedJsonString);
 		} catch (AlertProcessingeException e) {

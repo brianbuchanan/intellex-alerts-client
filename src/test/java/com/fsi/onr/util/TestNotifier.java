@@ -1,5 +1,7 @@
 package com.fsi.onr.util;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,12 +17,14 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import org.apache.commons.io.IOUtils;
+
 public class TestNotifier {
 
 	private static final Logger gLogger = Logger.getLogger(TestNotifier.class.getName());
 	private static final String ERROR_MSG = "Failed to publish test alert";
 	
-	public static void main(String[] args) throws NamingException {
+	public static void main(String[] args) throws NamingException, IOException {
 		
 		String qpidConnectionString = null;
 		
@@ -47,7 +51,10 @@ public class TestNotifier {
 			session = connection.createSession(true, Session.SESSION_TRANSACTED);
 			MessageProducer messageProducer = session.createProducer(topic);
 			TextMessage textMessage = session.createTextMessage();
-			textMessage.setText("<note><to>Tove</to><from>Jani</from><heading>Reminder</heading><body>Don't forget me this weekend!</body></note>");
+			InputStream is = TestNotifier.class.getResourceAsStream("alert.txt");
+			String alertText = IOUtils.toString(is, "UTF-8");
+			textMessage.setText(alertText);
+//			textMessage.setText("<note><to>Tove</to><from>Jani</from><heading>Reminder</heading><body>Don't forget me this weekend!</body></note>");
 			messageProducer.send(textMessage);
 			session.commit();
 			connection.close();

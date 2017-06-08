@@ -1,0 +1,36 @@
+<Alert xmlns="urn:org.cubrc.intellex.alert" xmlns:as="urn:org.cubrc.intellex.alert" guid="ALERT_4cf76ddd-3b82-4e9b-9d54-3ff8d830f464" id="bc2c2188-ceab-41d1-84b1-b6a0bc1ef81f">
+  <as:Name>Notifications</as:Name>
+  <as:InterestModelID>Notifications</as:InterestModelID>
+  <as:Source>https://cubrc2</as:Source>
+  <as:GenerationTime>2017-06-06T14:35:25.000-04:00</as:GenerationTime>
+  <as:Description>Tracks Medium Boat-6,Medium Boat-7 have been within 1.0 NM of each other for greater than 60.0 minutes</as:Description>
+  <as:Payload>
+    <Notifications>
+      <Notification id="org.cubrc.intellex.tcri.geoevent.TrackShadowingce277ba6-7a7b-4c72-bdd7-b58521476172,a8ab540d-8dac-428f-980e-4580574ffe531.060.02017-01-31T21:00:38.212-05:00">
+        <Name>Track Shadowing</Name>
+        <Description>Tracks Medium Boat-6,Medium Boat-7 have been within 1.0 NM of each other for greater than 60.0 minutes</Description>
+        <Category>GeoEvent</Category>
+        <Trigger>org.cubrc.intellex.tcri.geoevent.TrackShadowing</Trigger>
+        <NotificationTime>2017-01-31T21:00:38.212-05:00</NotificationTime>
+        <SourceUrl />
+        <SourceIdentifiers>
+          <Property name="trackId">ce277ba6-7a7b-4c72-bdd7-b58521476172</Property>
+          <Property name="trackId">a8ab540d-8dac-428f-980e-4580574ffe53</Property>
+          <Property name="proximityThreshold">1.0</Property>
+          <Property name="timeThreshold">60.0</Property>
+        </SourceIdentifiers>
+        <EffectedItems>
+          <Item type="trackId">ce277ba6-7a7b-4c72-bdd7-b58521476172</Item>
+          <Item type="trackId">a8ab540d-8dac-428f-980e-4580574ffe53</Item>
+        </EffectedItems>
+        <MetaData>
+          <Property type="eventType">NEW</Property>
+          <Property type="eventTime">1485914438212</Property>
+          <Property type="trackNames">Medium Boat-6,Medium Boat-7</Property>
+          <Property type="type">INDICATOR</Property>
+          <Property type="threat">HOSTILE</Property>
+        </MetaData>
+      </Notification>
+    </Notifications>
+  </as:Payload>
+</Alert>

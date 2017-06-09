@@ -45,7 +45,7 @@ public class IntellexAlertJmsSubscriber {
 			connection.start();
 			session = connection.createSession(true, Session.SESSION_TRANSACTED);
 			Topic topic = (Topic) context.lookup("intellex-alerts");
-			MessageConsumer messageConsumer = session.createDurableSubscriber(topic, SUBSCRIBER_NAME);
+			MessageConsumer messageConsumer = session.createConsumer(topic);
 			messageConsumer.setMessageListener(intellexAlertMessageListener);
 		} catch (NamingException | JMSException e) {
 			logger.info("Failed to set up connection and session");

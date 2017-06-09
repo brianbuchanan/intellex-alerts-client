@@ -56,9 +56,6 @@ public class IntellexAlertJmsSubscriber {
 	@PreDestroy
 	public void closeConnection() {
 		try {
-			if (session != null) {
-				session.unsubscribe(SUBSCRIBER_NAME);
-			}
 			if (connection != null) {
 				connection.close();
 			}
